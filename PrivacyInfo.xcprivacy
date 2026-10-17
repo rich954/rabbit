@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Apple's privacy manifest. Coriolis collects nothing and tracks nothing ([[privacy-policy]]); what it must
+     declare is why it touches three "required reason" APIs: UserDefaults (the Garmin watch it was last paired
+     with), file timestamps (its own records and photos on the device) and the system boot clock (timing, in the
+     Kotlin and Compose runtime). App Store Connect refuses an upload that uses them undeclared. -->
+<plist version="1.0">
+<dict>
+    <key>NSPrivacyTracking</key><false/>
+    <key>NSPrivacyTrackingDomains</key><array/>
+    <key>NSPrivacyCollectedDataTypes</key><array/>
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key><string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key><array><string>CA92.1</string></array>
+        </dict>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key><string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key><array><string>C617.1</string></array>
+        </dict>
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key><string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key><array><string>35F9.1</string></array>
+        </dict>
+    </array>
+</dict>
+</plist>

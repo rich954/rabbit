@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key><string>en-GB</string>
+    <key>CFBundleDisplayName</key><string>Coriolis</string>
+    <key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+    <key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>LSRequiresIPhoneOS</key><true/>
+    <key>CADisableMinimumFrameDurationOnPhone</key><true/>
+    <key>UILaunchScreen</key><dict/>
+    <!-- PORTRAIT ONLY, like the Android app: every screen is laid out for a phone held upright. -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array><string>UIInterfaceOrientationPortrait</string></array>
+    <!-- WHY EACH PERMISSION, in the words the shooter sees. Location is the firing point's coordinate,
+         for the Coriolis term and the weather lookup; the camera scans targets and barcodes. Neither
+         leaves the phone except the coordinate sent to the weather service ([[privacy-architecture]]). -->
+    <key>NSCameraUsageDescription</key>
+    <string>To scan targets, barcodes and handover codes. Photographs stay on your phone.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>To record the firing point and fetch local conditions for the solution. Your position stays on your phone.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>To attach photographs of your rifles, targets and paperwork to your own records.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>To read the angle the phone is held at, which is the incline of your shot. Nothing is recorded but that angle.</string>
+    <!-- Nothing but HTTPS, so the app is exempt. Declaring it here answers the export-compliance
+         question once instead of on every single upload. -->
+    <key>ITSAppUsesNonExemptEncryption</key><false/>
+    <!-- The Garmin watch link: Garmin Connect answers the watch choice by opening this scheme; the app asks
+         whether Garmin Connect is there; the SDK reaches the watch over Bluetooth. CoriolisGarminLink is the
+         build switch, from CORIOLIS_GARMIN_LINK in project.yml. -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key><string>uk.co.coriolisprecision.garmin</string>
+            <key>CFBundleURLSchemes</key><array><string>coriolisciq</string></array>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array><string>gcm-ciq</string></array>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Coriolis uses Bluetooth to spot for another shooter, to read your own chronograph or wind meter, and to send your firing solution to your Garmin watch.</string>
+    <key>CoriolisGarminLink</key><string>$(CORIOLIS_GARMIN_LINK)</string>
+    <!-- TestFlight testers get everything unlocked while this is YES (see LaunchPhase.ios.kt). -->
+    <key>CoriolisTestFlightFree</key><string>$(CORIOLIS_TESTFLIGHT_FREE)</string>
+</dict>
+</plist>

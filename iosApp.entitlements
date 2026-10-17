@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Universal links: a Coriolis code read by the iPhone camera opens the app (the website's
+  /.well-known/apple-app-site-association names 6CTA84DU5G.uk.co.coriolisprecision.app). Wired in project.yml
+  (CODE_SIGN_ENTITLEMENTS) on 6 Oct 2026, once Associated Domains was ticked on the App ID and the App Store
+  profile regenerated.
+-->
+<plist version="1.0">
+<dict>
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+        <string>applinks:coriolisprecision.co.uk</string>
+        <string>applinks:www.coriolisprecision.co.uk</string>
+    </array>
+</dict>
+</plist>
